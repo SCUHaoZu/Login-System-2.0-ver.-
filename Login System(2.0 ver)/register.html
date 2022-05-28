@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>註冊</title>
+ <link rel="stylesheet" href="register.css">
+</head>
+<script>
+    function validateForm(){
+        var w=document.forms["register"]["username"].value;
+        var x=document.forms["register"]["useremail"].value;
+        var y=document.forms["register"]["remail"].value;
+        if(w=="" || x=="" || y==""){
+            alert("不能為空值");
+            return false;
+        }
+        //帳號、密碼的長度限制
+        if (w.length<6 ){
+            alert("姓名長度不符合格式");
+            return false;
+        }
+        if (x.length<6 ){
+            alert("信箱長度不符合格式");
+            return false;
+        }
+        if (x!=y){
+            alert("請確認信箱是否正確!");
+            return false;
+        }
+}
+</script>
+<body>
+<form class="box" name="register" method="post" action="R_receive.php" onsubmit="return validateForm()">
+    <h1>SIGNUP</h1>
+    confirm name:<input type="text" name="username" size="20"><br>
+    confirm email:<input type="email" name="useremail" size="45"><br>
+    reconfirm email:<input type="email" name=" reconfirm email" size="45"><br>
+    <input type="submit" value="送出">
+    
+
+</form>
+</body>
+</html>
